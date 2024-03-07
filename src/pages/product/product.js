@@ -4,6 +4,7 @@ import Footer from "../footer/footer";
 import { motion } from "framer-motion";
 import { FaTruck, FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 const Card = ({ title, subTitle, description }) => {
     const [showAnimation, setShowAnimation] = useState(false);
@@ -29,7 +30,7 @@ const Card = ({ title, subTitle, description }) => {
           <div className="text-2xl mt-4 mb-4">{subTitle}</div>
           <p className="text-gray-700 text-base h-24 overflow-y-auto">{description}</p>
           <hr className="border-t-2 border-gray-800 mt-2 mx-auto" />
-          <button className="text-black hover:text-gray-300 font-bold mt-4">View</button>
+          <Link to="/product/view" className="text-black hover:text-gray-300 font-bold mt-4">View</Link>
         </div>
       </motion.div>
     );
