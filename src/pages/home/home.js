@@ -3,6 +3,7 @@ import Navbar from "../navbar/navbar";
 import { motion } from "framer-motion";
 import { FaTruck, FaCreditCard, FaUndo, FaHeadset } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer'; // Mengimpor useInView dari react-intersection-observer
+import Footer from "../footer/footer";
 
 const GradientText = ({ children }) => {
   return (
@@ -140,6 +141,7 @@ const Home = () => {
           description=" tim kami siap membantu Anda sepanjang waktu, memberikan keamanan dan kenyamanan dalam setiap transaksi dan kebutuhan pelanggan."
         />
       </div>
+      <Footer/>
     </div>
   );
 };
