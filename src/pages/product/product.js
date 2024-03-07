@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../navbar/navbar";
 import Footer from "../footer/footer";
 import { motion } from "framer-motion";
-import { FaTruck, FaCreditCard, FaUndo, FaHeadset } from "react-icons/fa";
+import { FaTruck, FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 
 const Card = ({ title, subTitle, description }) => {
@@ -28,6 +28,7 @@ const Card = ({ title, subTitle, description }) => {
           <div className="font-bold text-four text-7xl mt-8 mb-8">{title}</div>
           <div className="text-2xl mt-4 mb-4">{subTitle}</div>
           <p className="text-gray-700 text-base h-24 overflow-y-auto">{description}</p>
+          <hr className="border-t-2 border-gray-800 mt-2 mx-auto" />
           <button className="text-black hover:text-gray-300 font-bold mt-4">View</button>
         </div>
       </motion.div>
@@ -45,12 +46,12 @@ const Products = () => {
     {
       title: "1",
       subTitle: "Novel",
-      description: "kami menjamin pengiriman yang efisien dan cepat, sehingga Anda dapat menikmati produk kami tanpa menunggu terlalu lama."
+      description: "A novel is a literary work in the form of prose that has intrinsic elements"
     },
     {
       title: "2",
       subTitle: "Novel",
-      description: "kami menyediakan opsi pembayaran yang aman dan nyaman bagi pelanggan kami."
+      description: "Package books are an infrastructure of a that is ready to be used to create conditions and an atmosphere for active learning."
     },
     {
       title: "3",
@@ -121,7 +122,7 @@ const Products = () => {
       </div>
       <div className="flex justify-center mt-8 pb-28">
         <button onClick={handleShowMore} className="bg-four hover:bg-second text-white font-bold py-2 px-4 rounded">
-          {showMore ? "Less Categories" : "More Categories"}
+          {showMore ? <FaAngleUp/> : <FaAngleDown/>}
         </button>
       </div>
       <Footer/>
