@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../navbar/navbar';
 
+
 const GradientText = ({ children }) => {
   return (
     <span className="bg-gradient-to-r from-lime-200 via-green-500 to-green-400 text-transparent bg-clip-text animate-fadeIn">{children}</span>
