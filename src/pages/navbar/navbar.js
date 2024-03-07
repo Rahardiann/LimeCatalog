@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Logo from "/prakerin/Catalog/webcatalog/src/assets/logonav.png";
 
 const Navbar = () => {
   return (
