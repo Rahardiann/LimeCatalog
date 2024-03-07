@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../navbar/navbar";
 import { motion } from "framer-motion";
-import { FaTruck, FaCreditCard, FaUndo, FaHeadset } from 'react-icons/fa'; // Mengimpor ikon-ikon dari react-icons
+import { FaTruck, FaCreditCard, FaUndo, FaHeadset } from 'react-icons/fa';
+import { useInView } from 'react-intersection-observer'; // Mengimpor useInView dari react-intersection-observer
 
 const GradientText = ({ children }) => {
   return (
@@ -12,6 +13,15 @@ const GradientText = ({ children }) => {
 };
 
 const Card = ({ title, description }) => {
+  const [showAnimation, setShowAnimation] = useState(false); // Mengatur state untuk mengontrol apakah animasi harus dimulai atau tidak
+  const { ref, inView } = useInView(); // Menggunakan useInView hook untuk mendeteksi apakah Card terlihat di viewport
+
+  useEffect(() => {
+    if (inView) {
+      setShowAnimation(true); // Mengatur showAnimation menjadi true saat Card terlihat di viewport
+    }
+  }, [inView]);
+
   // Fungsi untuk memilih ikon berdasarkan judul
   const selectIcon = (title) => {
     switch (title) {
@@ -30,9 +40,10 @@ const Card = ({ title, description }) => {
 
   return (
     <motion.div
+      ref={ref} // Menetapkan ref untuk digunakan oleh useInView hook
       initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
+      animate={{ opacity: showAnimation ? 1 : 0, y: showAnimation ? 0 : 40 }} // Mengatur animasi berdasarkan showAnimation
+      transition={{ duration: 0.5, delay: 0.5 }}
       className="max-w-sm bg-third rounded overflow-hidden shadow-lg mx-4 my-2 "
     >
       <div className="px-6 py-4 mb-8">
@@ -46,6 +57,7 @@ const Card = ({ title, description }) => {
 
 const Home = () => {
   const [showAnimation, setShowAnimation] = useState(true);
+ 
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -93,7 +105,12 @@ const Home = () => {
           </div>
         </motion.div>
       </div>
-
+      <motion.div
+          initial={{ opacity: 0, y: 20 }} // Atur posisi awal dan opacity
+          animate={{ opacity: 1, y: 0 }} // Animasikan posisi dan opacity
+          transition={{ duration: 1, delay: 1, ease: "easeInOut" }} // Atur durasi, delay, dan jenis transisi
+          className={`text-center sm:text-left`}
+        >
       <div className="flex flex-col md:flex-row md:justify-center md:items-start pb-40">
         <h1 className="text-5xl font-bold mb-4 mx-auto  text-center md:text-left">Why Choosing Us?</h1>
         <p className="text-xl md:mt-0 mt-4 mx-auto text-center md:text-left" style={{ maxWidth: "350px" }}>
@@ -102,6 +119,7 @@ const Home = () => {
           crowd
         </p>
       </div>
+      </motion.div>
 
       <div className="flex flex-wrap justify-center pb-40">
         <Card
