@@ -1,6 +1,6 @@
 import React from "react";
 import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";
-import Logo from "/prakerin/Catalog/webcatalog/src/assets/logonav.png";
+
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="footer-contact">
-              <img src={Logo} alt="Logo" className="mb-4 w-12 h-auto" /> {/* Menampilkan logo */}
+              <img src="/assets/logonav.png" alt="Logo" className="mb-4 w-12 h-auto" /> {/* Menampilkan logo */}
               <p>
                 Leading company in turning information and managing information
                 into fortune and profit.

@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "/prakerin/Catalog/webcatalog/src/assets/logonav.png";
+
 
 const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-10 flex justify-between items-center bg-main text-white py-4 px-6 border-b border-gray-600">
       <div className="flex items-center ">
         <div className="flex items-center lg:ml-16">
-          <img src={Logo} alt="Logo" className="w-12 h-auto" />
+          <img src="/assets/logonav.png" alt="Logo" className="w-12 h-auto" />
         </div>
         <ul className="hidden md:flex mx-auto md:ml-24 lg:ml-40 space-x-6 justify-center">
           <li>
