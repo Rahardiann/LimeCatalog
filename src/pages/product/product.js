@@ -34,8 +34,59 @@ const Card = ({ title, subTitle, description }) => {
     );
 };
 
-
 const Products = () => {
+  const [showMore, setShowMore] = useState(false);
+
+  const handleShowMore = () => {
+    setShowMore(!showMore);
+  };
+
+  const cardsData = [
+    {
+      title: "1",
+      subTitle: "Novel",
+      description: "kami menjamin pengiriman yang efisien dan cepat, sehingga Anda dapat menikmati produk kami tanpa menunggu terlalu lama."
+    },
+    {
+      title: "2",
+      subTitle: "Novel",
+      description: "kami menyediakan opsi pembayaran yang aman dan nyaman bagi pelanggan kami."
+    },
+    {
+      title: "3",
+      subTitle: "Novel",
+      description: " Kami siap membantu Anda dengan proses refund yang mudah dan cepat"
+    },
+    {
+      title: "4",
+      subTitle: "Novel",
+      description: " tim kami siap membantu Anda sepanjang waktu, memberikan keamanan dan kenyamanan dalam setiap transaksi dan kebutuhan pelanggan."
+    },
+    {
+      title: "5",
+      subTitle: "Novel",
+      description: " tim kami siap membantu Anda sepanjang waktu, memberikan keamanan dan kenyamanan dalam setiap transaksi dan kebutuhan pelanggan."
+    },
+    {
+      title: "6",
+      subTitle: "Novel",
+      description: " tim kami siap membantu Anda sepanjang waktu, memberikan keamanan dan kenyamanan dalam setiap transaksi dan kebutuhan pelanggan."
+    },
+    {
+        title: "6",
+        subTitle: "Novel",
+        description: " tim kami siap membantu Anda sepanjang waktu, memberikan keamanan dan kenyamanan dalam setiap transaksi dan kebutuhan pelanggan."
+      },
+      {
+        title: "6",
+        subTitle: "Novel",
+        description: " tim kami siap membantu Anda sepanjang waktu, memberikan keamanan dan kenyamanan dalam setiap transaksi dan kebutuhan pelanggan."
+      }
+
+  ];
+
+  const displayedCards = showMore ? cardsData : cardsData.slice(0, 4);
+
   return (
     <div className="bg-main min-h-screen relative">
       <Navbar />
@@ -59,37 +110,21 @@ const Products = () => {
         </div>
       </motion.div>
       <div className="flex flex-wrap justify-center pt-40">
-        <Card
-          title="1"
-          subTitle="Novel"
-          description="kami menjamin pengiriman yang efisien dan cepat, sehingga Anda dapat menikmati produk kami tanpa menunggu terlalu lama."
-        />
-        <Card
-          title="2"
-          subTitle="Novel"
-          description="kami menyediakan opsi pembayaran yang aman dan nyaman bagi pelanggan kami."
-        />
-        <Card
-          title="3"
-          subTitle="Novel"
-          description=" Kami siap membantu Anda dengan proses refund yang mudah dan cepat"
-        />
-        <Card
-          title="4"
-          subTitle="Novel"
-          description=" tim kami siap membantu Anda sepanjang waktu, memberikan keamanan dan kenyamanan dalam setiap transaksi dan kebutuhan pelanggan."
-        />
-        <Card
-          title="5"
-          subTitle="Novel"
-          description=" tim kami siap membantu Anda sepanjang waktu, memberikan keamanan dan kenyamanan dalam setiap transaksi dan kebutuhan pelanggan."
-        />
-        <Card
-          title="6"
-          subTitle="Novel"
-          description=" tim kami siap membantu Anda sepanjang waktu, memberikan keamanan dan kenyamanan dalam setiap transaksi dan kebutuhan pelanggan."
-        />
+        {displayedCards.map((card, index) => (
+          <Card
+            key={index}
+            title={card.title}
+            subTitle={card.subTitle}
+            description={card.description}
+          />
+        ))}
       </div>
+      <div className="flex justify-center mt-8 pb-28">
+        <button onClick={handleShowMore} className="bg-four hover:bg-second text-white font-bold py-2 px-4 rounded">
+          {showMore ? "Less Categories" : "More Categories"}
+        </button>
+      </div>
+      <Footer/>
     </div>
   );
 };
