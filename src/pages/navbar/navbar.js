@@ -8,7 +8,7 @@ const Navbar = () => {
       <nav className="flex justify-between mt-2 items-center bg-main text-white py-4 px-6">
         <div className="flex items-center">
           <div className="flex items-center lg:ml-16">
-            
+            <img src={Logo} alt="Logo" className="w-12 h-auto" />
           </div>
           <ul className="hidden md:flex mx-auto md:ml-24 lg:ml-40 space-x-6 justify-center">
             <li>
@@ -17,7 +17,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/aboutus" className="text-black hover:text-orange">
+              <Link to="/aboutme" className="text-black hover:text-orange">
                 About Us
               </Link>
             </li>
@@ -83,7 +83,6 @@ const Navbar = () => {
       <hr className="border-b border-black border-opacity-20" />
     </div>
   );
-  
 };
 
 export default Navbar;
