@@ -5,6 +5,7 @@ import { FaTruck, FaCreditCard, FaUndo, FaHeadset } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer'; // Mengimpor useInView dari react-intersection-observer
 import Footer from "../footer/footer";
 
+
 const GradientText = ({ children }) => {
   return (
     <span className="bg-gradient-to-r from-lime-200 via-green-500 to-green-400 text-transparent bg-clip-text animate-fadeIn">
