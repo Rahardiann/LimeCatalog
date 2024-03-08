@@ -80,14 +80,15 @@ const Card = ({ title, description }) => {
 
 const Home = () => {
   const [showAnimation, setShowAnimation] = useState(false);
+  const { ref, inView } = useInView();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    if (inView) {
       setShowAnimation(true);
-    }, 2000);
+    }
+  }, [inView]);
 
-    return () => clearTimeout(timer);
-  }, []);
+
 
   return (
     <div className="bg-main min-h-screen relative">
@@ -166,10 +167,11 @@ const Home = () => {
         />
       </div>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: showAnimation ? 1 : 0, y: showAnimation ? 0 : 20 }}
-        transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
-        className={`text-center sm:text-left`}
+         ref={ref}
+         initial={{ opacity: 0, y: 40 }}
+         animate={{ opacity: showAnimation ? 1 : 0, y: showAnimation ? 0 : 40 }}
+         transition={{ duration: 0.5, delay: 0.5 }}
+        className={`text-center overflow-hidden sm:text-left`}
       >
         <div className="flex flex-col items-center justify-center px-4 pb-52 pt-32 -mt-4">
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-center text-black mb-8 ">

@@ -27,7 +27,7 @@ const Detail = () => {
           />
         </div>
         {/* ABOUT */}
-        <div className="flex flex-col sm:mx-auto gap-4 lg:w-2/4">
+        <div className="flex flex-col mx-auto gap-4 lg:w-2/4">
           <div>
             <span className=" text-gray-500 font-semibold">IT</span>
             <h1 className="text-5xl font-bold">Headphone</h1>
@@ -42,7 +42,7 @@ const Detail = () => {
           <p className="text-gray-700">
             - Personalized Spatial Audio with dynamic head tracking1
           </p>
-          <div className="flex flex-row gap-8 h-24">
+          <div className="flex flex-row gap-3 h-24">
             <img
               src={images.img1}
               alt=""
@@ -70,12 +70,7 @@ const Detail = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center px-4 pb-52 pt-32 -mt-4">
-      <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-center text-black mb-8 animate-fadeInUp">
-           Product terkait
-          </h1>
-      </div>
-
+      
 
       <Footer />
     </div>

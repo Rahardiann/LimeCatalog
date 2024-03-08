@@ -10,6 +10,7 @@ module.exports = {
         'second' : '#9AD72B',
         'third' : '#EDF1E6',
         'four' : '#5AE06D',
+        'five' : '#E2F8DC',
       }
 
     },
