@@ -21,7 +21,7 @@ const About = () => {
       <motion.div
           initial={{ opacity: 0, y: 20 }} // Atur posisi awal dan opacity
           animate={{ opacity: 1, y: 0 }} // Animasikan posisi dan opacity
-          transition={{ duration: 1, delay: 1, ease: "easeInOut" }} // Atur durasi, delay, dan jenis transisi
+          transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }} // Atur durasi, delay, dan jenis transisi
           className={`text-center sm:text-left`}
         >
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-center text-black mb-8 animate-fadeInUp">

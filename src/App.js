@@ -5,6 +5,7 @@ import About from './pages/about/about.js';
 import Products from './pages/product/product.js';
 import View from './pages/barang/barang.js';
 import Detail from './pages/detailproduk/detail.js';
+import Contact from './pages/contact/contact.js';
 
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
           <Route path="/product"  element={<Products/>} />
           <Route path="/product/view"  element={<View/>} />
           <Route path="/product/view/detail"  element={<Detail/>} />
+          <Route path="/contact"  element={<Contact/>} />
+
       </Routes>
     </Router>
   );

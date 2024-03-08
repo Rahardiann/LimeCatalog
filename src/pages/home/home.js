@@ -15,16 +15,15 @@ const GradientText = ({ children }) => {
 };
 
 const Card = ({ title, description }) => {
-  const [showAnimation, setShowAnimation] = useState(false); // Mengatur state untuk mengontrol apakah animasi harus dimulai atau tidak
-  const { ref, inView } = useInView(); // Menggunakan useInView hook untuk mendeteksi apakah Card terlihat di viewport
+  const [showAnimation, setShowAnimation] = useState(false);
+  const { ref, inView } = useInView();
 
   useEffect(() => {
     if (inView) {
-      setShowAnimation(true); // Mengatur showAnimation menjadi true saat Card terlihat di viewport
+      setShowAnimation(true);
     }
   }, [inView]);
 
-  // Fungsi untuk memilih ikon berdasarkan judul
   const selectIcon = (title) => {
     switch (title) {
       case "Fast Delivery":
@@ -62,11 +61,11 @@ const Card = ({ title, description }) => {
 
   return (
     <motion.div
-      ref={ref} // Menetapkan ref untuk digunakan oleh useInView hook
+      ref={ref}
       initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: showAnimation ? 1 : 0, y: showAnimation ? 0 : 40 }} // Mengatur animasi berdasarkan showAnimation
+      animate={{ opacity: showAnimation ? 1 : 0, y: showAnimation ? 0 : 40 }}
       transition={{ duration: 0.5, delay: 0.5 }}
-      className="max-w-sm bg-third rounded overflow-hidden shadow-lg mx-4 my-2 "
+      className="max-w-sm bg-third rounded overflow-hidden shadow-lg mx-4 my-2"
     >
       <div className="px-6 py-4 mb-8">
         {selectIcon(title)}
@@ -80,14 +79,14 @@ const Card = ({ title, description }) => {
 };
 
 const Home = () => {
-  const [showAnimation, setShowAnimation] = useState(true);
+  const [showAnimation, setShowAnimation] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowAnimation(false);
-    }, 2000); // Ubah angka ini sesuai dengan durasi animasi
+      setShowAnimation(true);
+    }, 2000);
 
-    return () => clearTimeout(timer); // Membersihkan timer pada unmount komponen
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -95,9 +94,9 @@ const Home = () => {
       <Navbar />
       <div className="flex flex-col items-center justify-center px-4 pb-64 pt-52">
         <motion.div
-          initial={{ opacity: 0, y: 20 }} // Atur posisi awal dan opacity
-          animate={{ opacity: 1, y: 0 }} // Animasikan posisi dan opacity
-          transition={{ duration: 1, delay: 1, ease: "easeInOut" }} // Atur durasi, delay, dan jenis transisi
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
           className={`text-center sm:text-left`}
         >
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-center text-black mb-8 animate-fadeInUp">
@@ -121,7 +120,6 @@ const Home = () => {
             information into fortune and profit.
           </p>
           <div className="text-center">
-            {/* Menetapkan div yang berisi tombol berada di tengah */}
             <button className="bg-second hover:bg-lime-200 text-black font-bold py-2 px-8 md:px-16 rounded-3xl shadow-xl animate-fadeInUp">
               Contact us
             </button>
@@ -129,9 +127,9 @@ const Home = () => {
         </motion.div>
       </div>
       <motion.div
-        initial={{ opacity: 0, y: 20 }} // Atur posisi awal dan opacity
-        animate={{ opacity: 1, y: 0 }} // Animasikan posisi dan opacity
-        transition={{ duration: 1, delay: 1, ease: "easeInOut" }} // Atur durasi, delay, dan jenis transisi
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
         className={`text-center sm:text-left`}
       >
         <div className="flex flex-col md:flex-row md:justify-center md:items-start pb-40">
@@ -168,9 +166,9 @@ const Home = () => {
         />
       </div>
       <motion.div
-        initial={{ opacity: 0, y: 20 }} // Atur posisi awal dan opacity
-        animate={{ opacity: 1, y: 0 }} // Animasikan posisi dan opacity
-        transition={{ duration: 1, delay: 1, ease: "easeInOut" }} // Atur durasi, delay, dan jenis transisi
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: showAnimation ? 1 : 0, y: showAnimation ? 0 : 20 }}
+        transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
         className={`text-center sm:text-left`}
       >
         <div className="flex flex-col items-center justify-center px-4 pb-52 pt-32 -mt-4">
@@ -184,20 +182,14 @@ const Home = () => {
             New perfection in comfort, style and performance
           </p>
           
-          <div class="flex flex-col md:flex-row md:justify-center md:items-start pb-40">
-            <div class="md:flex md:flex-col md:justify-start md:items-start   ">
-              <h1 class="text-xl mx-auto text-center md:text-left pt-40 border-b border-gray-600"
-               style={{ maxWidth: "350px" }}>
-                "Listen to the world with true intensity. Experience colorful
-                sound with our best headphones"
+          <div className="flex flex-col md:flex-row md:justify-center md:items-start pb-40">
+            <div className="md:flex md:flex-col md:justify-start md:items-start">
+              <h1 className="text-xl mx-auto text-center md:text-left pt-40 border-b border-gray-600" style={{ maxWidth: "350px" }}>
+                "Listen to the world with true intensity. Experience colorful sound with our best headphones"
               </h1>
               <Link to="/product/view/detail" className="text-gray-900  hover:text-gray-300 font-bold mt-4">View More</Link>
             </div>
-            <img
-              src="assets/hedset.png"
-              alt="Deskripsi Gambar"
-              class="w-full max-w-lg  lg:ml-96 rounded-lg pt-8"
-            />
+            <img src="assets/hedset.png" alt="Deskripsi Gambar" className="w-full max-w-lg  lg:ml-96 rounded-lg pt-8" />
           </div>
         </div>
       </motion.div>

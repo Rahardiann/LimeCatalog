@@ -95,7 +95,7 @@ const Products = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }} // Atur posisi awal dan opacity
         animate={{ opacity: 1, y: 0 }} // Animasikan posisi dan opacity
-        transition={{ duration: 1, delay: 1, ease: "easeInOut" }} // Atur durasi, delay, dan jenis transisi
+        transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }} // Atur durasi, delay, dan jenis transisi
         className={`text-center sm:text-left`}
       >
         <div className="flex flex-col md:flex-row md:justify-center md:items-start pt-40  ">

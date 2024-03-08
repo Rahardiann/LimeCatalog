@@ -10,7 +10,7 @@ const GradientText = ({ children }) => {
   );
 };
 
-const About = () => {
+const Contact = () => {
 
   
     return (
@@ -21,7 +21,7 @@ const About = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
+              transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
               className={`text-left md:w-1/2 md:pr-10`}
             >
               <div className="mr-auto">
@@ -80,4 +80,4 @@ const About = () => {
       
 }
 
-export default About;
+export default Contact;
