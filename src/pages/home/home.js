@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../navbar/navbar";
 import { motion } from "framer-motion";
-import { FaTruck, FaCreditCard, FaUndo, FaHeadset } from 'react-icons/fa';
-import { useInView } from 'react-intersection-observer'; // Mengimpor useInView dari react-intersection-observer
+import { FaTruck, FaCreditCard, FaUndo, FaHeadset } from "react-icons/fa";
+import { useInView } from "react-intersection-observer"; // Mengimpor useInView dari react-intersection-observer
 import Footer from "../footer/footer";
-
+import { Link } from "react-router-dom";
 
 const GradientText = ({ children }) => {
   return (
@@ -28,13 +28,33 @@ const Card = ({ title, description }) => {
   const selectIcon = (title) => {
     switch (title) {
       case "Fast Delivery":
-        return <FaTruck className="mx-auto text-center text-white rounded-full bg-black p-4" size={98} />;
+        return (
+          <FaTruck
+            className="mx-auto text-center text-white rounded-full bg-black p-4"
+            size={98}
+          />
+        );
       case "Secure Payment":
-        return <FaCreditCard className="mx-auto text-center text-white rounded-full bg-black p-4" size={98} />;
+        return (
+          <FaCreditCard
+            className="mx-auto text-center text-white rounded-full bg-black p-4"
+            size={98}
+          />
+        );
       case "Easy Refund":
-        return <FaUndo className="mx-auto text-center text-white rounded-full bg-black p-4" size={98} />;
+        return (
+          <FaUndo
+            className="mx-auto text-center text-white rounded-full bg-black p-4"
+            size={98}
+          />
+        );
       case "24/7 Service":
-        return <FaHeadset className="mx-auto text-center text-white rounded-full bg-black p-4" size={98} />;
+        return (
+          <FaHeadset
+            className="mx-auto text-center text-white rounded-full bg-black p-4"
+            size={98}
+          />
+        );
       default:
         return null;
     }
@@ -51,7 +71,9 @@ const Card = ({ title, description }) => {
       <div className="px-6 py-4 mb-8">
         {selectIcon(title)}
         <div className="font-bold text-xl text-center mt-8 mb-8">{title}</div>
-        <p className="text-gray-700 text-base text-center h-24 overflow-y-auto">{description}</p>
+        <p className="text-gray-700 text-base text-center h-24 overflow-y-auto">
+          {description}
+        </p>
       </div>
     </motion.div>
   );
@@ -59,7 +81,6 @@ const Card = ({ title, description }) => {
 
 const Home = () => {
   const [showAnimation, setShowAnimation] = useState(true);
- 
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -108,26 +129,30 @@ const Home = () => {
         </motion.div>
       </div>
       <motion.div
-          initial={{ opacity: 0, y: 20 }} // Atur posisi awal dan opacity
-          animate={{ opacity: 1, y: 0 }} // Animasikan posisi dan opacity
-          transition={{ duration: 1, delay: 1, ease: "easeInOut" }} // Atur durasi, delay, dan jenis transisi
-          className={`text-center sm:text-left`}
-        >
-      <div className="flex flex-col md:flex-row md:justify-center md:items-start pb-40">
-        <h1 className="text-5xl font-bold mb-4 mx-auto  text-center md:text-left">Why Choosing Us?</h1>
-        <p className="text-xl md:mt-0 mt-4 mx-auto text-center md:text-left" style={{ maxWidth: "350px" }}>
-          At Andes, we understand that you have choices when it comes to our
-          products and services. Here's why we believe we stand out from the
-          crowd
-        </p>
-      </div>
+        initial={{ opacity: 0, y: 20 }} // Atur posisi awal dan opacity
+        animate={{ opacity: 1, y: 0 }} // Animasikan posisi dan opacity
+        transition={{ duration: 1, delay: 1, ease: "easeInOut" }} // Atur durasi, delay, dan jenis transisi
+        className={`text-center sm:text-left`}
+      >
+        <div className="flex flex-col md:flex-row md:justify-center md:items-start pb-40">
+          <h1 className="text-5xl font-bold mb-4 mx-auto  text-center md:text-left">
+            Why Choosing Us?
+          </h1>
+          <p
+            className="text-xl md:mt-0 mt-4 mx-auto text-center md:text-left"
+            style={{ maxWidth: "350px" }}
+          >
+            At Andes, we understand that you have choices when it comes to our
+            products and services. Here's why we believe we stand out from the
+            crowd
+          </p>
+        </div>
       </motion.div>
 
       <div className="flex flex-wrap justify-center pb-40">
         <Card
           title="Fast Delivery"
           description="kami menjamin pengiriman yang efisien dan cepat, sehingga Anda dapat menikmati produk kami tanpa menunggu terlalu lama."
-          
         />
         <Card
           title="Secure Payment"
@@ -142,7 +167,42 @@ const Home = () => {
           description=" tim kami siap membantu Anda sepanjang waktu, memberikan keamanan dan kenyamanan dalam setiap transaksi dan kebutuhan pelanggan."
         />
       </div>
-      <Footer/>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }} // Atur posisi awal dan opacity
+        animate={{ opacity: 1, y: 0 }} // Animasikan posisi dan opacity
+        transition={{ duration: 1, delay: 1, ease: "easeInOut" }} // Atur durasi, delay, dan jenis transisi
+        className={`text-center sm:text-left`}
+      >
+        <div className="flex flex-col items-center justify-center px-4 pb-52 pt-32 -mt-4">
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-center text-black mb-8 ">
+            New Product
+          </h1>
+          <p
+            className="text-xl md:mt-0 mt-4 mx-auto text-center md:text-left"
+            style={{ maxWidth: "450px" }}
+          >
+            New perfection in comfort, style and performance
+          </p>
+          
+          <div class="flex flex-col md:flex-row md:justify-center md:items-start pb-40">
+            <div class="md:flex md:flex-col md:justify-start md:items-start   ">
+              <h1 class="text-xl mx-auto text-center md:text-left pt-40 border-b border-gray-600"
+               style={{ maxWidth: "350px" }}>
+                "Listen to the world with true intensity. Experience colorful
+                sound with our best headphones"
+              </h1>
+              <Link to="/product/view/detail" className="text-gray-900  hover:text-gray-300 font-bold mt-4">View More</Link>
+            </div>
+            <img
+              src="assets/hedset.png"
+              alt="Deskripsi Gambar"
+              class="w-full max-w-lg  lg:ml-96 rounded-lg pt-8"
+            />
+          </div>
+        </div>
+      </motion.div>
+
+      <Footer />
     </div>
   );
 };
