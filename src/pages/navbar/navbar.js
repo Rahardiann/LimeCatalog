@@ -26,7 +26,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/gallery" className="text-black hover:text-orange hover:underline">
+            <Link to="/contact" className="text-black hover:text-orange hover:underline">
               Contact Us
             </Link>
           </li>
